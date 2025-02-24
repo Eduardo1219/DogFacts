@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infraestructure", "Infraest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Worker", "Worker\Worker.csproj", "{C813EEF0-6FFA-4BFC-979A-1590143B9203}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worker.Jobs", "Worker.Jobs\Worker.Jobs.csproj", "{CCDACD98-1825-465D-AD9C-40C704CFCA15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C813EEF0-6FFA-4BFC-979A-1590143B9203}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C813EEF0-6FFA-4BFC-979A-1590143B9203}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C813EEF0-6FFA-4BFC-979A-1590143B9203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCDACD98-1825-465D-AD9C-40C704CFCA15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCDACD98-1825-465D-AD9C-40C704CFCA15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCDACD98-1825-465D-AD9C-40C704CFCA15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCDACD98-1825-465D-AD9C-40C704CFCA15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

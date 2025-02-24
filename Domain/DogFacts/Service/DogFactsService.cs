@@ -31,5 +31,20 @@ namespace Domain.DogFacts.Service
         {
             return await _repository.GetByIdAsync(id);
         }
+
+        public async Task<IList<DogFactsEntity>> GetDogFactPagedAsync(string search, int start, int take)
+        {
+            return await _repository.GetPagedAsync(s => 
+            string.IsNullOrEmpty(search) ? true : s.BodyAttribute.ToLower().Contains(search.ToLower()) || s.Type.ToLower().Contains(search.ToLower()),
+            take,
+            start,
+            o => o.Type);
+        }
+
+        public async Task<int> GetDogFactCountAsync(string search)
+        {
+            return await _repository.GetCountAsync(s =>
+            string.IsNullOrEmpty(search) ? true : s.BodyAttribute.ToLower().Contains(search.ToLower()) || s.Type.ToLower().Contains(search.ToLower()));
+        }
     }
 }

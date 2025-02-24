@@ -1,12 +1,9 @@
 ﻿using Domain.Base.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.DogFacts.Entity
 {
+    [Table("DogFacts")]
     public class DogFactsEntity : BaseEntity
     {
         public string Type { get; private set; } = string.Empty;
@@ -14,6 +11,14 @@ namespace Domain.DogFacts.Entity
         public DateTime CreatedAt { get; private set; }
         public DateTime? LastChangeAt { get; private set; }
 
+        public DogFactsEntity(Guid id, string type, string bodyAttribute, DateTime createdAt, DateTime? lastChangeAt = null)
+        {
+            Type = type;
+            BodyAttribute = bodyAttribute;
+            CreatedAt = createdAt;
+            LastChangeAt = lastChangeAt;
+            SetId(id);
+        }
 
         public void ChangeType(string type)
         {

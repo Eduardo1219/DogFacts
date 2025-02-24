@@ -6,5 +6,10 @@ namespace Domain.Base.Entity
     {
         [Key]
         public Guid Id { get; private set; } = Guid.NewGuid();
+
+        public void SetId(Guid id)
+        {
+            this.Id = id;
+        }
     }
 }
