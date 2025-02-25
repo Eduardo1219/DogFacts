@@ -1,5 +1,6 @@
 ﻿using Domain.DogFacts.Entity;
 using Domain.DogFacts.Service;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Text.Json;
@@ -14,11 +15,13 @@ namespace Worker.Jobs.ScheduleJobs
         private static readonly HttpClient _httpClient = new HttpClient();
         private ILogger<ScheduleJobs> _logger;
         private readonly IDogFactsService _dogFactsService;
+        private readonly IConfiguration _configuration;
 
-        public ScheduleJobs(ILogger<ScheduleJobs> logger, IDogFactsService dogFactsService)
+        public ScheduleJobs(ILogger<ScheduleJobs> logger, IDogFactsService dogFactsService, IConfiguration configuration)
         {
             _logger = logger;
             _dogFactsService = dogFactsService;
+            _configuration = configuration;
         }
 
         public async Task AddNewDogFactsAsync(int callsQnt = 1)
@@ -57,7 +60,7 @@ namespace Worker.Jobs.ScheduleJobs
         public async Task<DogFactsGetDto> GetNewDogFactsAsync()
         {
             _logger.LogInformation($"Calling dog facts API.");
-            var response = await _httpClient.GetAsync("https://dogapi.dog/api/v2/facts");
+            var response = await _httpClient.GetAsync(_configuration["DogApiUrl"] ?? "");
             if (response.IsSuccessStatusCode)
             {
                 _logger.LogInformation($"Success on dog facts API request");

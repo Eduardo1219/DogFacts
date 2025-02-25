@@ -18,8 +18,6 @@ namespace Infraestructure.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
-            //modelBuilder.Entity<DogFactsEntity>().HasData(new DogFactsEntity(Guid.Parse("c7e8ab41-b156-498f-b49e-be62f919c39c"),"bad", "Stronger", DateTime.UtcNow));
             base.OnModelCreating(modelBuilder);
         }
     }

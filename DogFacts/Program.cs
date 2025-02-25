@@ -14,23 +14,12 @@ builder.Services.AddControllers()
         });
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddInfraestructure(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen(options =>
-//{
-//    options.SwaggerDoc("v1", new OpenApiInfo
-//    {
-//        Version = "v1",
-//        Title = "Sistema de Gestão de Portfólio de Investimentos",
-//        Description = "Sistema de Gestão de Portfólio de Investimentos",
-//    });
 
-//    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-//    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
-//});
 builder.Services.AddHangfire((sp, config) =>
 {
     var conn = sp.GetRequiredService<IConfiguration>().GetConnectionString("Default");
